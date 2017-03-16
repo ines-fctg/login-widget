@@ -131,7 +131,11 @@ var SFIDWidget = function() {
 			content.appendChild(orloginwith);
 			
 			
-		} else if ((!SFIDWidget.authconfig.LoginPage.UsernamePasswordEnabled) && (SFIDWidget.authconfig.AuthProviders.length > 0)) {
+		} else if ((!SFIDWidget.authconfig.LoginPage.UsernamePasswordEnabled) 
+			   
+			   
+			   
+			   & (SFIDWidget.authconfig.AuthProviders.length > 0)) {
 			
 			var orloginwith = document.createElement("p"); 
 			orloginwith.className = "sfid-small sfid-mb16";
@@ -484,7 +488,7 @@ var SFIDWidget = function() {
 				if (rawDomain.indexOf("/") > 0) rawDomain = rawDomain.substring(0,rawDomain.indexOf('/'));
 				SFIDWidget.config.domain = rawDomain;
 				SFIDWidget.XAuthServerUrl = SFIDWidget.config.communityURL + "/services/apexrest/";
-				if (namespace != null) SFIDWidget.XAuthServerUrl += namespace;
+				if (namespace != null && namespace !='/') SFIDWidget.XAuthServerUrl += namespace;
 				SFIDWidget.XAuthServerUrl += "xauth?community=" + SFIDWidget.config.communityURL;
 			}
 			
